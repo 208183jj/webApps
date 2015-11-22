@@ -71,7 +71,7 @@
 <script type="text/ng-template" id="/posts.html">
     <div class="page-header">
         <h3>
-            <span class="glyphicon glyphicon-arrow-left" ng-click="returnToPosts"></span>
+            <a class="glyphicon glyphicon-arrow-left" href="/#/home.html"></a>
             <a ng-show="post.link" href="{{post.link}}">
                 {{post.title}}
             </a>
@@ -87,6 +87,10 @@
             </span>
         - by {{comment.author}}
     </div>
+    <div ng-hide="isLoggedIn()">
+        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a comment or upvote it.
+        </h3>
+    </div>
     <form ng-submit="addComment()" ng-show="isLoggedIn()" style="margin-top:30px;">
         <h3>Add a new comment</h3>
 
@@ -94,9 +98,7 @@
             <input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
             <button type="submit" class="btn btn-primary">Post</button>
     </form>
-    <div ng-hide="isLoggedIn()">
-        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
-    </div>
+    
 </script>
 <script type="text/ng-template" id="/register.html">
     <div class="page-header">

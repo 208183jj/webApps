@@ -167,10 +167,10 @@ app.controller('MainCtrl', [
 app.controller('PostsCtrl', [
 '$scope',
 '$stateParams',
-'$posts',
+'posts',
 'post',
 'auth',
-function($scope, $stateParams, $posts, post, auth){
+function($scope, $stateParams, posts, post, auth){
   $scope.post = post;
   $scope.isLoggedIn = auth.isLoggedIn;
   $scope.addComment = function(){
